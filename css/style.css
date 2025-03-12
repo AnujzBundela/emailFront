@@ -1,0 +1,78 @@
+
+
+
+
+* {
+  box-sizing: border-box ;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  line-height: 29.6px;
+  font-style: normal;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+}
+
+
+
+.display-3 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--primary-color);
+  font-size: 56px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  line-height: 60px;
+}
+
+.secH {
+   font-family:  Arial, Helvetica, sans-serif;
+  font-size: 48px;
+  position: relative;
+  font-weight: 700;
+  line-height: 52px;
+  margin-bottom: 40px;
+}
+
+
+.therdH {
+   font-family: Arial, Helvetica, sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 40px;
+  margin: 0 0 20px;
+}
+
+.fourthH {
+   font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: capitalize;
+  line-height: 30px;
+  position: relative;
+}
+
+.fifthH {
+   font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: capitalize;
+  position: relative;
+}
+
+
+.bodysmall{
+  font-size: 14px;
+}
+
+.defaultPadding{
+  padding: 80px 0px;
+}
