@@ -70,6 +70,7 @@
         <ul class="showData">
         </ul>
       </div>
+      <div id="alertBox"></div>
     </div>
   </section>
 
@@ -102,7 +103,7 @@
 
 
 
-  <script>
+  <!-- <script>
     document.getElementById("contactForm").addEventListener("submit", async function (e) {
       e.preventDefault();
 
@@ -132,18 +133,47 @@
       }
     });
 
+  </script> -->
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", async function (event) {
+      event.preventDefault(); // Prevent page refresh
+
+      const name = document.getElementById("validationCustom01").value;
+      const email = document.getElementById("validationCustomEmail").value;
+      const message = document.getElementById("validationCustom03").value;
+      const alertBox = document.getElementById("alertBox"); // Bootstrap alert div
+
+      try {
+        const response = await fetch("http://192.168.29.9:5000/api/send", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email, message }),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          alertBox.innerHTML = `<div class="alert alert-success alert-dismissible fade show" role="alert">
+                ✅ <strong>Success!</strong> ${result.success}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>`;
+          document.getElementById("contactForm").reset(); // Reset form fields
+        } else {
+          alertBox.innerHTML = `<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                ❌ <strong>Error!</strong> ${result.error}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>`;
+        }
+      } catch (error) {
+        alertBox.innerHTML = `<div class="alert alert-danger alert-dismissible fade show" role="alert">
+            ❌ <strong>Error!</strong> Something went wrong.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>`;
+      }
+    });
+
   </script>
+
 </body>
 
 </html>
-
-
-<!-- EMAIL_USER=your-email@gmail.com
-EMAIL_PASS=your-app-password
-EMAIL_RECEIVER=your-main-email@gmail.com
-
-
-// "scripts": {
-  //   "test": "echo \"Error: no test specified\" && exit 1"
-  // },
-  -->
