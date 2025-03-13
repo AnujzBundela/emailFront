@@ -144,7 +144,7 @@
       const alertBox = document.getElementById("alertBox"); // Bootstrap alert div
 
       try {
-        const response = await fetch("http://192.168.29.9:5000/api/send", {
+        const response = await fetch("emailback-ap.up.railway.app", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ name, email, message }),
